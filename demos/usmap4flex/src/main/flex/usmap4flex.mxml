@@ -266,7 +266,7 @@
   <mx:NumberFormatter id="numForm" precision="1" rounding="nearest"/>
 
   <mx:HTTPService id="loader"
-      url="data/unemploymentRates.xml"
+      url="data/unemploymentRates"
       result="loadSucceeded(event)"
       fault="loadFailed(event)"
    />
@@ -305,7 +305,7 @@
      <mx:Label id="lblDG" text="{labelAvg}" styleName="subTitle"/>
      <mx:Spacer height="20"/>
      <mx:HBox styleName="dGLabels" width="100%">
-       <mx:Label text="TOP 5 STATES"/>
+       <mx:Label text="TOP FIVE STATES"/>
      </mx:HBox>
      <mx:DataGrid id="topDG"
       height="120" width="250"

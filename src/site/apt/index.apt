@@ -14,12 +14,12 @@
 ~~ limitations under the License.
 ~~
   ----------------
-  JuiceKit\231 SDK
+  JuiceKit\231  SDK
   ----------------
 
 Overview
 
-  The JuiceKit\231 is a Software Development Kit (SDK) for building Information Experience\231 applications. The SDK can be used by web designers and developers to build graphically rich and interactive information displays. The JuiceKit is currently integrates with {{{http://www.adobe.com/products/flex/}Adobe Flex}} to create components that are easy to implement and aesthetically pleasing. Components of the JuiceKit include controls, visualizations, and utility classes.
+  JuiceKit\231 is a Software Development Kit (SDK) for building Information Experience\231  applications. The SDK can be used by web designers and developers to build graphically rich and interactive information displays.  JuiceKit currently integrates with {{{http://www.adobe.com/products/flex/}Adobe Flex}} to create components that are easy to implement and aesthetically pleasing. Components of JuiceKit include controls, visualizations, and utility classes.
 
 [images/example.png] JuiceKit example application
 
@@ -28,11 +28,11 @@ Overview
 
 Examples
 
-  The JuiceKit SDK has been used to build many information visualizations and customer applications. Here are a few simple examples:
+  JuiceKit has been used to build many information visualizations and customer applications. Here are a few simple examples:
 
   *  {{{http://recoveryact.juiceanalytics.com/treemap/}Federal Recovery Act Treemap}} - This is an application of the JuiceKit SDK Treemap visualization to better understand the components of the American Recovery and Reinvestment Act of 2009.
 
-  *  {{{http://www.juicekit.org/demos/treemap4flex/}Economic Census Data Treemap}} - Every 5 years the NAICS takes an economic census. We've used this data to demonstrate using the JuiceKit to implement the treemap with additional controls to change some of the display parameters.
+  *  {{{http://www.juicekit.org/demos/treemap4flex/}Economic Census Data Treemap}} - Every 5 years the NAICS takes an economic census. We've used this data to demonstrate using JuiceKit to implement a treemap with additional controls to change some of the display parameters.
 
   []
   For other examples of implementations of the JuiceKit for customers, take a look at this {{{http://www.juiceanalytics.com/writing/announcing-juicekit-sdk-open-source/}recent article}}.
@@ -58,7 +58,7 @@ Documentation
 
 Requirements
 
-  You can {{{http://github.com/jonbuffington/juicekit/tree/master}download}} JuiceKit\231 from the Github collaborative version control system.
+  You can {{{http://github.com/jonbuffington/juicekit/tree/master}download}} JuiceKit from GitHub.
 
   Don't forget these requirements before you get started:
 
@@ -78,7 +78,6 @@ Contribute
 
   *  Get involved in the {{{http://groups.google.com/group/juicekit}JuiceKit development community}} discussion group on Google Groups to learn about best practices, tips and tricks, and questions and answers.
 
-  *  \[Coming Soon\] Make suggestions and file defects in our {{{issue-tracking.html}issue tracking}} system. You can help us stay focussed on the areas that you believe to be most important.
+  *  \[Coming Soon\] Make suggestions and report bugs in our {{{issue-tracking.html}issue tracking}} system. You can help us stay focused on the areas that you believe to be most important.
 
   *  Finally, if you make changes to the code and want to submit them for review and possible inclusion into the code base, you can do that on {{{http://github.com/jonbuffington/juicekit/tree/master}Github}}.
-

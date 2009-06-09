@@ -32,22 +32,22 @@ Overview
 
 Requirements
 
-  You need to have the following technologies to download and build the source.
+  You need to have the following tools to download and build the source.
 
-  * {{{http://git-scm.com/}Git}}, an open source, distributed version control system
+  * {{{http://git-scm.com/}Git}}, an open-source distributed version control system
 
-  * {{{http://maven.apache.org/}Apache Maven 2}}, an open source software project management tool
+  * {{{http://maven.apache.org/}Apache Maven 2}}, an open source software project management and build tool
 
 
 Downloading the source
 
-  You download the current source code from {{{http://github.com/jonbuffington/juicekit/tree/master}Github}} by cloning the repository.
+  You download the current source code from {{{http://github.com/jonbuffington/juicekit/tree/master}GitHub}} by cloning the repository.
 
 +-------------------------------+
 $ git clone git://github.com/jonbuffington/juicekit.git
 +-------------------------------+
 
-  After cloning JuiceKit from github you need to do a submodule update to pull in the patched flare library:
+  After cloning JuiceKit from GitHub you need to do a submodule update to pull in the patched flare library:
 
 +-------------------------------+
 $ cd juicekit
@@ -56,7 +56,7 @@ $ git submodule update -i
 
 Building the source
 
-  The following command assumes you are using a Bourne/Bash shell (the default on many operating systems). To build the the library from source, issue the following Maven2 command.
+  The following command assumes you are using a bash shell (the default on OS X and most Linux systems). To build the the library from source, use the following Maven2 command.
 
 +-------------------------------+
 $ MAVEN_OPTS="-Xms64m -Xmx256m" mvn clean install site

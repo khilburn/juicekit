@@ -22,7 +22,7 @@
 Application {
   background-color: #ffffff;
   backgroundGradientColors: #ffffff, #ffffff;
-	fontFamily: Helvetica, Arial, sans;
+  fontFamily: Helvetica, Arial, sans;
 }
 
 .dataGridStyle {
@@ -64,6 +64,12 @@ Application {
   borderStyle: solid;
 }
 
+.header {
+  color: #EEE;
+  font-weight: bold;
+  font-size: 18;
+}
+
 ToolTip {
   backgroundAlpha: 0.9;
   backgroundColor: #4D4D4D;
@@ -72,6 +78,6 @@ ToolTip {
 }
 
 USMapControl {
-  font-size: 10;
+  font-size: 8;
   font-color: #4D4D4D;
 }

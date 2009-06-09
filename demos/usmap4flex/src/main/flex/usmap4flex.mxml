@@ -266,7 +266,7 @@
   <mx:NumberFormatter id="numForm" precision="1" rounding="nearest"/>
 
   <mx:HTTPService id="loader"
-      url="http://media.juiceanalytics.com/media/images/unemploymentRates.xml"
+      url="data/unemploymentRates.xml"
       result="loadSucceeded(event)"
       fault="loadFailed(event)"
    />

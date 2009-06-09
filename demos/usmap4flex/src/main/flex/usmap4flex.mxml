@@ -26,10 +26,10 @@
    width="100%" height="100%"
    xmlns:controls="org.juicekit.visual.controls.*"
    xmlns:local="*" xmlns:renderers="org.juicekit.visual.renderers.*"
-   creationComplete="init()"
+   creationComplete="init()"  
    >
 
-   <mx:Style source="skin.css"/>
+   <mx:Style source="style.css"/>
 
   <mx:Script>
     <![CDATA[

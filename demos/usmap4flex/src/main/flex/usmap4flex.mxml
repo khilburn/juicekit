@@ -119,7 +119,7 @@
                            , MIDDLE_GRADIENT_COLOR
                            , RIGHT_GRADIENT_COLOR);
 
-        legend.leftText = RANGE_MIN.toString()+"%";
+        legend.leftText = "0%";
 
 
         /*
@@ -127,8 +127,10 @@
         * Dividing the state rate by nat. avg gives number less than or greater than 1.
         * Dividing that value by 2 maps nat. avg to middle color in the gradient.
         */
+        
         map.colorEncodingFunction = function(name:String, data:Object):uint{
-          const lookUpValue:Number = (parseFloat(data.rate) / natAvg) / RANGE;
+          //const lookUpValue:Number = (parseFloat(data.rate) / natAvg) / RANGE;
+          var lookUpValue:Number = parseFloat(data.rate) / 12.0; 
           return colorPalette.getColor(Math.min(lookUpValue, 1)); //This maps the max color for the out-of-range states.
         };
       }
@@ -171,8 +173,8 @@
         var value:Object = dict[key];
 
         natAvg = value.avg;
-        legend.rightText = (2 * natAvg).toString() + "%"; //range of data mapped is from 0% (leftText) to twice the national average
-        labelAvg = "Nat. unemployment for year "+ key + " is "+natAvg + "%";
+        legend.rightText = "12%"; // range of data mapped is from 0% (leftText) to 12%
+        labelAvg = "National unemployment in "+ key + " is "+natAvg + "%";
 
         var statesArray:Array = value.states.source;
         mapData = new ArrayCollection(statesArray.sortOn("rate", Array.NUMERIC)); //sort the data on rate to get the top and bottom states
@@ -268,12 +270,26 @@
       result="loadSucceeded(event)"
       fault="loadFailed(event)"
    />
+   <!-- alternatively you can load this data from http://media.juiceanalytics.com/media/images/unemploymentRates.xml -->
 
-  <mx:HBox width="1100" height="600" horizontalGap="50">
+  <mx:HBox width="1100" height="600" horizontalGap="20">
 
     <mx:VBox width="650" height="550" styleName="generalLayout">
-      <mx:HSlider id="yearSlider"
-        width="362"
+
+     <controls:USMapControl id="map"
+       stateAbbrField="abbr"
+       data="{mapData}"
+       jkDataMouseOver="onMouseOver(event)"
+       jkDataMouseOut="onMouseOut(event)"
+       width="600" height="400" fontSize="8" fontColor="#333333"
+      />
+      
+     <renderers:HLabeledGradient3 id="legend" width="50%"/>
+    </mx:VBox>
+
+    <mx:VBox width="360" height="550" styleName="generalLayout">
+      <mx:HSlider id="yearSlider" labelStyleName="subTitle"
+        width="250"
         change="sliderChange(event)"
         minimum="1999"
         maximum="2009"
@@ -283,46 +299,38 @@
         dataTipFormatFunction="dataTipFormatter"
         liveDragging="true"
       />
-
-     <controls:USMapControl id="map"
-       stateAbbrField="abbr"
-       data="{mapData}"
-       jkDataMouseOver="onMouseOver(event)"
-       jkDataMouseOut="onMouseOut(event)"
-       width="600" height="400"
-      />
-     <renderers:HLabeledGradient3 id="legend" width="50%"/>
-     <mx:Label text="{'Unemployment Rate: '+natAvg + '%'}"/>
-    </mx:VBox>
-
-    <mx:VBox width="360" height="550" styleName="generalLayout">
-     <mx:Label id="lblDG" text="{labelAvg}" fontSize="14" fontWeight="bold"/>
+      
+      
+     <mx:Spacer height="20"/>
+     <mx:Label id="lblDG" text="{labelAvg}" styleName="subTitle"/>
+     <mx:Spacer height="20"/>
      <mx:HBox styleName="dGLabels" width="100%">
-       <mx:Label text="Top five states."/>
+       <mx:Label text="TOP 5 STATES"/>
      </mx:HBox>
      <mx:DataGrid id="topDG"
-      height="200" width="250"
-      rowHeight="30"
-      fontSize="10"
+      height="120" width="250"
+      rowHeight="20"
+      fontSize="12"
       styleName="dataGridStyle"
       showHeaders="false"
       resizableColumns="false"
       draggableColumns="false"
       selectable="false"
-      dataProvider="{topStatesAC}"
+      dataProvider="{topStatesAC}"      
       >
       <mx:columns>
-        <mx:DataGridColumn dataField="name" width="120" showDataTips="true" dataTipFunction="dataGridToolTip"/>
-        <mx:DataGridColumn dataField="rate" width="120" itemRenderer="org.juicekit.visual.renderers.IndexCircleRenderer"/>
+        <mx:DataGridColumn dataField="name" width="150" showDataTips="true" dataTipFunction="dataGridToolTip"/>
+        <mx:DataGridColumn dataField="rate" width="100" itemRenderer="org.juicekit.visual.renderers.IndexCircleRenderer"/>
       </mx:columns>
      </mx:DataGrid>
      <mx:HBox styleName="dGLabels" width="100%">
-      <mx:Label text="Bottom five states." fontSize="12" fontWeight="bold"/>
+      <mx:Label text="BOTTOM FIVE STATES"/>
      </mx:HBox>
+     
     <mx:DataGrid id="bottomDG"
-      height="50%" width="250"
-      rowHeight="30"
-      fontSize="10"
+      height="120" width="250"
+      rowHeight="20"
+      fontSize="12"
       styleName="dataGridStyle"
       showHeaders="false"
       resizableColumns="false"
@@ -331,8 +339,8 @@
       dataProvider="{bottomStatesAC}"
      >
      <mx:columns>
-       <mx:DataGridColumn dataField="name" width="120" showDataTips="true" dataTipFunction="dataGridToolTip"/>
-       <mx:DataGridColumn dataField="rate" dataTipField="rate" width="120" itemRenderer="org.juicekit.visual.renderers.IndexCircleRenderer"/>
+       <mx:DataGridColumn dataField="name" width="150" showDataTips="true" dataTipFunction="dataGridToolTip"/>
+       <mx:DataGridColumn dataField="rate" dataTipField="rate" width="100" itemRenderer="org.juicekit.visual.renderers.IndexCircleRenderer"/>
      </mx:columns>
     </mx:DataGrid>
    </mx:VBox>
